@@ -1,7 +1,7 @@
 
 
 name := "DatabaseActor"
-version := "1.0"
+version := "0.1"
 scalaVersion := "2.12.3"
 scalacOptions := Seq(
   "-language:_",
@@ -10,13 +10,10 @@ scalacOptions := Seq(
 )
 
 val versions = new {
-  val akkaVersion = "2.5"
   val akkaFullVersion = "2.5.1"
-  val akkaHttpVersion = "10.0.6"
   val scalatestFullVersion = "3.0.3"
 
   val junitFullVersion = "4.12"
-  val scalazVersion = "7.2.12"
   val jooqVersion = "3.9.2"
   val scalaMockVersion = "3.6.0"
   val mockitoVersion = "2.8.47"

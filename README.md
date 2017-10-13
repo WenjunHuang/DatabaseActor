@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/WenjunHuang/DatabaseActor.svg?branch=master)](https://travis-ci.org/WenjunHuang/DatabaseActor)
+
+
 An akka & jooq util librayry to provide database connection management and perform database commands asynchronously.
 ### Design philosophy：
 * One actor object manage one connection. if connection lost,its actor dies
