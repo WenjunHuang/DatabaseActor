@@ -19,7 +19,7 @@ class MySQLDSLContextFactory(jdbcUrl: String, user: String, password: String) ex
   private[infrastructures] def getConnection() = {
     val props = new Properties()
     mysqlConfig.entrySet().forEach { entry =>
-      props.put(entry.getKey, entry.getValue.unwrapped())
+      props.setProperty(entry.getKey, entry.getValue.unwrapped().toString)
     }
     props.put("user", user)
     props.put("password", password)
@@ -28,8 +28,12 @@ class MySQLDSLContextFactory(jdbcUrl: String, user: String, password: String) ex
   }
 
   override def keepAlive(dsl: DSLContext): Try[Unit] = {
-    check(dsl).map { _ =>
-      dsl.execute("/* ping */")
+    Try {
+      dsl.connection { cnt ⇒
+        val stmt = cnt.createStatement
+        stmt.execute("/* ping */")
+        stmt.close()
+      }
     }
   }
 }
