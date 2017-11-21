@@ -1,6 +1,6 @@
 name := "DatabaseActor"
-version := "0.1"
-scalaVersion := "2.12.3"
+version := "1.0"
+scalaVersion := "2.12.4"
 scalacOptions := Seq(
   "-language:_",
   "-feature",
@@ -8,11 +8,11 @@ scalacOptions := Seq(
 )
 
 val versions = new {
-  val akkaFullVersion = "2.5.1"
+  val akkaFullVersion = "2.5.4"
   val scalatestFullVersion = "3.0.3"
 
   val junitFullVersion = "4.12"
-  val jooqVersion = "3.9.2"
+  val jooqVersion = "3.10.1"
   val scalaMockVersion = "3.6.0"
   val mockitoVersion = "2.8.47"
   val h2Version = "1.4.196"
@@ -21,7 +21,7 @@ val versions = new {
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % versions.akkaFullVersion,
   "org.jooq" % "jooq" % versions.jooqVersion,
-  "org.jooq" % "jooq-scala" % versions.jooqVersion,
+  "org.jooq" %% "jooq-scala" % versions.jooqVersion,
   "com.typesafe.akka" %% "akka-testkit" % versions.akkaFullVersion % Test,
   "org.scalatest" %% "scalatest" % versions.scalatestFullVersion % Test,
   "org.scalamock" %% "scalamock-scalatest-support" % versions.scalaMockVersion % Test,
